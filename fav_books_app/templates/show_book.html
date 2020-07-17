@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{book.title}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <a href="/main"><button class="btn btn-primary">Go Back</button></a>
+
+    <div id="header-main">
+        <h1>Welcome {{user.first_name}}</h1>
+        <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+    </div>
+    <div id="show_book">
+        <h1>{{book.title}}</h1>
+        <br>
+        <p>(Added by: {{book.user.first_name}} {{book.user.last_name}})</p>
+        <p>Added on: {{book.created_at}}</p>
+        <p>Last Updated: {{book.updated_at}}</p>
+        <p>Description: {{book.desc}}</p>
+        <h3>Actions:</h3>
+        <a href="/like_book/{{book.id}}"><button class="btn btn-success">Like this Book</button></a><br>
+        <a href="/unlike_book/{{book.id}}"><button class="btn btn-danger">Unlike this Book</button></a><br>
+        {% if user.id == book.user.id %}
+            <a href="/edit/{{book.id}}"><button class="btn btn-primary">Edit this Book</button></a>
+        {% endif %}
+    </div>
+    <div id="liked">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Users who like this book:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in book.user_who_liked.all %}
+                    <tr>
+                        <td style="font-size: larger; font-weight: bold;">{{user.first_name}} {{user.last_name}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

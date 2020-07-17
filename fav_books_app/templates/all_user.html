@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <table class="table table-bordered" >
+        <a href="/">Go back</a>
+        <thead>
+            <tr>
+                <th>First Name:</th>
+                <th>Last Name:</th>
+                <th>Email:</th>
+                <th>Password:</th>
+                <th>Actions:</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for user in all_users%}
+                <tr>
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.last_name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                    <td><a href="/{{user.id}}/delete"><button class="btn btn-danger">Delete</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+</body>
+</html>

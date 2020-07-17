@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 20px 400px;
+}
+
+button{
+    margin: 20px 67px;
+    padding: 5px;
+}
+
+#registration{
+    display: inline-block;
+    margin: 20px;
+}
+
+#login{
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.error{
+    font-weight: bold;
+    color: red;
+}
+#header-main{
+    padding: 10px;
+    border-bottom: 3px solid black;
+}
+#header-main h1, a{
+    display: inline-block;
+    
+}
+
+#header-main a{
+    margin-left: 700px;
+}
+
+#new-book{
+    display: inline-block;
+    padding: 10px;
+    width: 300px;
+    margin: 10px;
+}
+
+#all-books{
+    display: inline-block;
+    width: 1000px;
+    padding: 10px;
+    margin: 10px;
+    vertical-align: top;
+}
+
+#show_book{
+    padding: 10px;
+    margin: 20px;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+#show_book h1{
+    display: inline;
+}
+
+#show_book p{
+    font-size: larger;
+}
+
+#liked{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 200px;
+    padding: 20px;
+}
